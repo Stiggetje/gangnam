@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Play and Pause Sound with Volume Control</title>
+  </head>
+  <body>
+    <button onclick="toggleSound()">Play/Pause Sound</button>
+    <input type="range" min="0" max="1" step="0.1" value="0.5" oninput="setVolume(this.value)">
+    <audio id="myAudio">
+      <source src="gangnam.mp3" type="audio/mpeg">
+    </audio>
+    <script>
+      var audio = document.getElementById("myAudio");
+      var isPlaying = false;
+
+      function toggleSound() {
+        if (isPlaying) {
+          audio.pause();
+          isPlaying = false;
+        } else {
+          audio.play();
+          isPlaying = true;
+        }
+      }
+
+      function setVolume(volume) {
+        audio.volume = volume;
+      }
+    </script>
+  </body>
+</html>
